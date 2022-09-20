@@ -18,7 +18,8 @@ include 'condb.php';
                                         a_Name = '$attraction_name',
                                         Description = '$description',
                                         Created = '$timestamp'";
-                                        echo $sql;
+      
+      $conn->query($sql);
   }
 
 ?>
