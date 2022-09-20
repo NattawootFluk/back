@@ -2,11 +2,15 @@
 
 include 'condb.php';
 
-$id = $_GET['id'];
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+}
 
         // Update Attraction
 
   if (isset($_POST['submit'])){
+
+      $id = $_POST['id'];
 
       $province = $_POST['province'];
       $attraction_type = $_POST['attraction_type'];
@@ -25,19 +29,20 @@ $id = $_GET['id'];
                                         Modified = '$timestamp' WHERE a_ID = '$id'";
       
       $conn->query($sql);
+      header('location:index.php');
 
   }
 
       // Delete Attraction 
           
       if(isset($_POST['delete'])){
-        
 
+        $id = $_POST['id'];
+        
         $sql = "DELETE FROM attraction WHERE a_ID = '$id'";
         $conn->query($sql);
 
-
-
+        header('location:index.php');
     }
 
         // SELECT Attraction DATA
@@ -149,7 +154,7 @@ $id = $_GET['id'];
                                 </div>
 
                                              <!-- Button -->
-                                
+                                <input type="hidden" value="<?=$rows['a_ID']?>" name="id">
                                 <div class="p-1 mb-3 text-center">
                                     <button type="submit" name="submit" class="btn btn-warning mb-3 btn-lg">Update</button>
                                     <button type="submit" name="delete" class="btn btn-danger mb-3 btn-lg" onclick="return confirm('Are you sure to Delete this place?')">Delete</button>
