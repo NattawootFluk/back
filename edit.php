@@ -72,7 +72,7 @@ include 'condb.php';
 
                                          <!-- Form action  -->
 
-                            <form action="manage.php" method="post">
+                            <form action="edit.php" method="post">
 
                                          <!-- Province -->
                             
