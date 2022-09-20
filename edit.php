@@ -35,12 +35,17 @@ include 'condb.php';
         $result = $conn->query($sql);
         $rows = $result->fetch_assoc();
 
+    if(isset($_POST['delete'])){
+      function confirm_delete(){
+          
+      }
+    }
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>เพิ่มข้อมูลสถานที่ท่องเที่ยว</title>
+  <title>แก้ไขข้อมูลสถานที่ท่องเที่ยว</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,8 +67,8 @@ include 'condb.php';
 
                 <div class="card border-warning">
                         <div class="card-body">
-                            <h4 class="card-title h1 text-center ">Add Page</h4>
-                            <p class="card-text fs-3 text-start">Add Attraction</p>
+                            <h4 class="card-title h1 text-center ">Edit Page</h4>
+                            <p class="card-text fs-3 text-start">Edit Attraction</p>
 
                                          <!-- Form action  -->
 
@@ -75,6 +80,7 @@ include 'condb.php';
                                     <label for="province" class="form-label fs-5">Province :</label>
                                         <select class="form-select" name="province" id="province">
                                             <option value="<?=$rows['p_ID']?>"><?=$rows['p_Name']?></option>
+                                            <option value=""></option>
 
                                           <!-- query -->
                                                 
@@ -97,6 +103,7 @@ include 'condb.php';
                                     <label for="province" class="form-label fs-5">Type :</label>
                                     <select class="form-select" name="attraction_type" id="province">
                                     <option value="<?=$rows['t_ID']?>"><?=$rows['t_Name']?></option>
+                                    <option value=""></option>
 
                                           <!-- query -->
                                                 
@@ -137,6 +144,7 @@ include 'condb.php';
                                 
                                 <div class="p-1 mb-3 text-center">
                                     <button type="submit" name="submit" class="btn btn-warning mb-3 btn-lg">Update</button>
+                                    <button type="submit" name="delete" class="btn btn-danger mb-3 btn-lg" onclick="return confirm('Are you sure?')">Delete</button>
                                     <a href="index.php" class="btn btn-secondary mb-3 btn-lg">Back</a>
                                 </div>
                             </form>
