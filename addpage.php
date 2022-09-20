@@ -12,12 +12,13 @@ include 'condb.php';
       $imgurl = $_POST['imgurl'];
       $timestamp = date('Y-m-d H:i:s');
 
-      $sql = "INSERT INTO attration SET ProvinceID = '$province',
-                                        AttrationTypeID = '$attraction_type,
+      $sql = "INSERT INTO attraction SET ProvinceID = '$province',
+                                        AttrationTypeID = '$attraction_type',
                                         ImageURL = '$imgurl',
                                         a_Name = '$attraction_name',
                                         Description = '$description',
-                                        Create = "
+                                        Created = '$timestamp'";
+                                        echo $sql;
   }
 
 ?>
