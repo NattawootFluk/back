@@ -26,11 +26,11 @@ include 'condb.php';
   <main>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-12 m-2 p-2">
+            <div class="col-sm-12 col-md-12 p-4">
 
-                <div class="card text-center">
+                <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title h1">Edit Page</h4>
+                            <h4 class="card-title h1 text-center">Edit Page</h4>
                             <p class="card-text fs-3 text-start">Edit Attraction</p>
 
                                             <!-- Form Data  -->
@@ -39,7 +39,7 @@ include 'condb.php';
 
                                             <!-- Province -->
                             
-                                <div class="mb-3">
+                                <div class="p-1 mb-3">
                                     <label for="province" class="form-label">Province :</label>
                                     <select class="form-select form-select-lg" name="province" id="province">
                                         <option selected>-- Please select --</option>
@@ -50,7 +50,7 @@ include 'condb.php';
 
                                             <!-- Attraction Type -->
 
-                                <div class="mb-3">
+                                <div class="p-1 mb-3">
                                     <label for="province" class="form-label">Type :</label>
                                     <select class="form-select form-select-lg" name="province" id="province">
                                         <option selected>-- Please select --</option>
@@ -58,13 +58,22 @@ include 'condb.php';
                                         <option value="<?=$row['']?>"><?=$row['']?></option>
                                     </select>
                                 </div>
-
-                                b5
+                                <div class="p-1 mb-3">
+                                  <label class="form-lable">Name :</label>
+                                  <input type="text" class="form-control" name=''>
+                                </div>
+                                <div class="p-1 mb-3">
+                                  <label class="form-lable">Description :</label>
+                                  <textarea class="form-control" name='' rows="3"></textarea>
+                                </div>
+                                <div class="p-1 mb-3">
+                                  <label class="form-lable">Image UTL :</label>
+                                  <input type="text" class="form-control" name=''>
+                                </div>
                             </form>
                         </div>
                 </div>
             </div>
-
         </div>
     </div>
 
