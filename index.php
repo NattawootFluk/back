@@ -39,7 +39,7 @@ include 'condb.php';
             <?php
                         }
                     }else{
-                        echo 'ไม่มีข้อมูล';
+                        echo '<p class="text-center">ไม่มีข้อมูล</p>';
                 };
             ?>
         </div>
@@ -65,7 +65,7 @@ include 'condb.php';
             <?php
                 }
             }else{
-                echo 'ไม่มีข้อมูล';
+                echo '<p class="text-center">ไม่มีข้อมูล</p>';
             };
             ?>
         </div>
@@ -91,7 +91,7 @@ include 'condb.php';
             <?php
                 }
             }else{
-                echo 'ไม่มีข้อมูล';
+                echo '<p class="text-center">ไม่มีข้อมูล</p>';
             };
             ?>
         </div>
@@ -117,7 +117,7 @@ include 'condb.php';
             <?php
                 }
             }else{
-                echo 'ไม่มีข้อมูล';
+                echo '<p class="text-center">ไม่มีข้อมูล</p>';
             };
             ?>
         </div>
@@ -167,7 +167,7 @@ include 'condb.php';
             <?php
                 }
             }else{
-                echo 'ไม่มีข้อมูล';
+                echo '<p class="text-center">ไม่มีข้อมูล</p>';
             };
             ?>
         </div>        
