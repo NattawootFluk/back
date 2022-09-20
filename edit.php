@@ -2,13 +2,45 @@
 
 include 'condb.php';
 
-?>
+// $id = $_GET['id'];
 
+        // Update Attraction
+
+  if (isset($_POST['submit'])){
+
+      $province = $_POST['province'];
+      $attraction_type = $_POST['attraction_type'];
+      $attraction_name = $_POST['attraction_name'];
+      $description = $_POST['description'];
+      $imgurl = $_POST['imgurl'];
+
+        // เวลาปัจจุบัน
+      $timestamp = date('Y-m-d H:i:s');
+
+      $sql = "UPDATE attraction SET  ProvinceID = '$province',
+                                        AttrationTypeID = '$attraction_type',
+                                        ImageURL = '$imgurl',
+                                        a_Name = '$attraction_name',
+                                        Description = '$description',
+                                        Modified = '$timestamp' WHERE a_ID = '1'";
+      
+      $conn->query($sql);
+
+  }
+
+        // SELECT Attraction DATA
+
+        $sql = "SELECT * FROM attraction a INNER JOIN province p ON a.ProvinceID = p.p_ID
+                                            INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID WHERE a_id = 1";
+        $result = $conn->query($sql);
+        $rows = $result->fetch_assoc();
+
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>แก้ไขข้อมูลสถานที่ท่องเที่ยว</title>
+  <title>เพิ่มข้อมูลสถานที่ท่องเที่ยว</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,52 +60,84 @@ include 'condb.php';
         <div class="row">
             <div class="col-sm-12 col-md-12 p-4">
 
-                <div class="card">
+                <div class="card border-warning">
                         <div class="card-body">
-                            <h4 class="card-title h1 text-center">Edit Page</h4>
-                            <p class="card-text fs-3 text-start">Edit Attraction</p>
+                            <h4 class="card-title h1 text-center ">Add Page</h4>
+                            <p class="card-text fs-3 text-start">Add Attraction</p>
 
-                                            <!-- Form Data  -->
+                                         <!-- Form action  -->
 
-                            <form action="update.php" method="post">
+                            <form action="edit.php" method="post">
 
-                                            <!-- Province -->
+                                         <!-- Province -->
                             
                                 <div class="p-1 mb-3">
-                                    <label for="province" class="form-label">Province :</label>
-                                    <select class="form-select form-select-lg" name="province" id="province">
-                                        <option selected>-- Please select --</option>
+                                    <label for="province" class="form-label fs-5">Province :</label>
+                                        <select class="form-select" name="province" id="province">
+                                            <option value="<?=$rows['p_ID']?>"><?=$rows['p_Name']?></option>
 
-                                        <option value="<?=$row['']?>"><?=$row['']?></option>
+                                          <!-- query -->
+                                                
+                                              <?php
+                                                  $sql = "SELECT * FROM province";
+                                                  $result = $conn->query($sql);
+                                                      while($row = $result->fetch_assoc()){
+                                              ?>
+                                                      <option value="<?=$row['p_ID']?>"><?=$row['p_Name']?></option>
+                                              <?php
+                                                      }
+                                              ?>
+                                    
+                                        </select>
+                                </div>
+
+                                          <!-- Attraction Type -->
+
+                                <div class="p-1 mb-3">
+                                    <label for="province" class="form-label fs-5">Type :</label>
+                                    <select class="form-select" name="attraction_type" id="province">
+                                    <option value="<?=$rows['t_ID']?>"><?=$rows['t_Name']?></option>
+
+                                          <!-- query -->
+                                                
+                                              <?php
+                                                  $sql = "SELECT * FROM attraction_type";
+                                                  $result = $conn->query($sql);
+                                                      while($row = $result->fetch_assoc()){
+                                              ?>
+                                                      <option value="<?=$row['t_ID']?>"><?=$row['t_Name']?></option>
+                                              <?php
+                                                      }
+                                              ?>
                                     </select>
                                 </div>
 
-                                            <!-- Attraction Type -->
+                                          <!-- Attraction Name -->
 
                                 <div class="p-1 mb-3">
-                                    <label for="province" class="form-label">Type :</label>
-                                    <select class="form-select form-select-lg" name="province" id="province">
-                                        <option selected>-- Please select --</option>
+                                  <label class="form-lable fs-5">Name :</label>
+                                  <input type="text" class="form-control" name='attraction_name' value="<?=$rows['a_Name']?>">
+                                </div>
 
-                                        <option value="<?=$row['']?>"><?=$row['']?></option>
-                                    </select>
-                                </div>
+                                          <!-- Attraction Description -->
+
                                 <div class="p-1 mb-3">
-                                  <label class="form-lable">Name :</label>
-                                  <input type="text" class="form-control" name=''>
+                                  <label class="form-lable fs-5">Description :</label>
+                                  <textarea class="form-control" name='description' rows="3"><?=$rows['Description']?></textarea>
                                 </div>
+
+                                            <!-- ImageURL -->
+
                                 <div class="p-1 mb-3">
-                                  <label class="form-lable">Description :</label>
-                                  <textarea class="form-control" name='' rows="3"></textarea>
+                                  <label class="form-lable fs-5">Image URL :</label>
+                                  <input type="text" class="form-control" name='imgurl' value="<?=$rows['ImageURL']?>">
                                 </div>
-                                <div class="p-1 mb-3">
-                                  <label class="form-lable">Image UTL :</label>
-                                  <input type="text" class="form-control" name=''>
-                                </div>
+
+                                             <!-- Button -->
+                                
                                 <div class="p-1 mb-3 text-center">
-                                    <button type="submit" class="btn btn-warning mb-3">Update</button>
-                                    <a href="del.php" class="btn btn-danger mb-3">Back</a>
-                                    <a href="index.php" class="btn btn-secondary mb-3">Back</a>
+                                    <button type="submit" name="submit" class="btn btn-warning mb-3 btn-lg">Update</button>
+                                    <a href="index.php" class="btn btn-secondary mb-3 btn-lg">Back</a>
                                 </div>
                             </form>
                         </div>
