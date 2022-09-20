@@ -28,18 +28,26 @@ include 'condb.php';
 
   }
 
+      // Delete Attraction 
+          
+      if(isset($_POST['delete'])){
+        
+
+        $sql = "DELETE FROM attraction WHERE a_ID = '1'";
+        $conn->query($sql);
+
+
+
+    }
+
         // SELECT Attraction DATA
 
         $sql = "SELECT * FROM attraction a INNER JOIN province p ON a.ProvinceID = p.p_ID
-                                            INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID WHERE a_id = 1";
+                                           INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID WHERE a_id = 1";
         $result = $conn->query($sql);
         $rows = $result->fetch_assoc();
 
-    if(isset($_POST['delete'])){
-      function confirm_delete(){
-          
-      }
-    }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -144,7 +152,7 @@ include 'condb.php';
                                 
                                 <div class="p-1 mb-3 text-center">
                                     <button type="submit" name="submit" class="btn btn-warning mb-3 btn-lg">Update</button>
-                                    <button type="submit" name="delete" class="btn btn-danger mb-3 btn-lg" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" name="delete" class="btn btn-danger mb-3 btn-lg" onclick="return confirm('Are you sure to Delete this place?')">Delete</button>
                                     <a href="index.php" class="btn btn-secondary mb-3 btn-lg">Back</a>
                                 </div>
                             </form>
@@ -160,7 +168,8 @@ include 'condb.php';
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-  </script>
+  </>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
     integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
