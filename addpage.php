@@ -35,7 +35,8 @@ include 'condb.php';
                 });
               });
             </script>";
-            header("refresh:2; url=index.php");
+            header("refresh:1.5; url=index.php");
+            exit();
       }
   }
 
@@ -77,9 +78,11 @@ include 'condb.php';
                                          <!-- Province -->
                             
                                 <div class="p-1 mb-3">
-                                    <label for="province" class="form-label fs-5">Province :</label>
-                                        <select class="form-select" name="province" id="province">
-                                            <option selected>-- Please select --</option>
+                                    <label for="exampleDataList" class="form-label fs-5">Province :</label>
+                                        <select class="form-select" name="province" list="datalistOptions" id="exampleDataList" required>
+                                          
+                                        <datalist id="datalistOptions">
+                                            <option value="" selected>-- Please select --</option>
 
                                           <!-- query -->
                                                 
@@ -92,7 +95,7 @@ include 'condb.php';
                                               <?php
                                                       }
                                               ?>
-                                    
+                                        </datalist>
                                         </select>
                                 </div>
 
@@ -100,8 +103,8 @@ include 'condb.php';
 
                                 <div class="p-1 mb-3">
                                     <label for="province" class="form-label fs-5">Type :</label>
-                                    <select class="form-select" name="attraction_type" id="province">
-                                        <option selected>-- Please select --</option>
+                                    <select class="form-select" name="attraction_type" id="province" required>
+                                        <option value="" selected>-- Please select --</option>
 
                                           <!-- query -->
                                                 
@@ -110,7 +113,7 @@ include 'condb.php';
                                                   $result = $conn->query($sql);
                                                       while($row = $result->fetch_assoc()){
                                               ?>
-                                                      <option value="<?=$row['t_ID']?>"><?=$row['t_Name']?></option>
+                                                      <option value="<?=$row['t_ID']?>"><?=$row['t_Name']?></option >
                                               <?php
                                                       }
                                               ?>
@@ -121,7 +124,7 @@ include 'condb.php';
 
                                 <div class="p-1 mb-3">
                                   <label class="form-lable fs-5">Name :</label>
-                                  <input type="text" class="form-control" name='attraction_name'>
+                                  <input type="text" class="form-control" name='attraction_name' required>
                                 </div>
 
                                           <!-- Attraction Description -->
@@ -135,7 +138,7 @@ include 'condb.php';
 
                                 <div class="p-1 mb-3">
                                   <label class="form-lable fs-5">Image URL :</label>
-                                  <input type="text" class="form-control" name='imgurl'>
+                                  <input type="text" class="form-control" name='imgurl' required>
                                 </div>
 
                                              <!-- Button -->

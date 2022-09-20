@@ -67,6 +67,8 @@ if(isset($_GET['id'])){
                 });
               </script>";
               header("refresh:2; url=index.php");
+              exit();
+              
         }
     }
 
