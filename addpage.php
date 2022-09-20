@@ -77,8 +77,10 @@ include 'condb.php';
                                          <!-- Province -->
                             
                                 <div class="p-1 mb-3">
-                                    <label for="province" class="form-label fs-5">Province :</label>
-                                        <select class="form-select" name="province" id="province">
+                                    <label for="exampleDataList" class="form-label fs-5">Province :</label>
+                                        <select class="form-select" name="province" list="datalistOptions" id="exampleDataList">
+                                          
+                                        <datalist id="datalistOptions">
                                             <option selected>-- Please select --</option>
 
                                           <!-- query -->
@@ -92,7 +94,7 @@ include 'condb.php';
                                               <?php
                                                       }
                                               ?>
-                                    
+                                        </datalist>
                                         </select>
                                 </div>
 

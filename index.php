@@ -25,6 +25,8 @@ include 'condb.php';
             <?php
                 $sql1 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 4";
                 $result1 = $conn->query($sql1);
+                if($result1->num_rows > 0){
+
                 while ($row1 = $result1->fetch_array()) {
                 
             ?>
@@ -35,6 +37,9 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
+                        }
+                    }else{
+                        echo 'ไม่มีข้อมูล';
                 };
             ?>
         </div>
@@ -46,6 +51,8 @@ include 'condb.php';
             <?php
                 $sql2 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 1";
                 $result2 = $conn->query($sql2);
+                if($result2->num_rows > 0){
+
                 while ($row2 = $result2->fetch_array()) {
                 
             ?>
@@ -56,7 +63,10 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
-                };
+                }
+            }else{
+                echo 'ไม่มีข้อมูล';
+            };
             ?>
         </div>
         <div class="row p-3 d-flex justify-content-between align-items-center">
@@ -67,6 +77,8 @@ include 'condb.php';
             <?php
                 $sql3 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 2";
                 $result3 = $conn->query($sql3);
+                if($result3->num_rows > 0){
+
                 while ($row3 = $result3->fetch_array()) {
                 
             ?>
@@ -77,7 +89,10 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
-                };
+                }
+            }else{
+                echo 'ไม่มีข้อมูล';
+            };
             ?>
         </div>
         <div class="row p-3 d-flex justify-content-between data-hide4 align-items-center">
@@ -88,6 +103,8 @@ include 'condb.php';
             <?php
                 $sql4 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 3";
                 $result4 = $conn->query($sql4);
+                if($result4->num_rows > 0){
+
                 while ($row4 = $result4->fetch_array()) {
                 
             ?>
@@ -98,7 +115,10 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
-                };
+                }
+            }else{
+                echo 'ไม่มีข้อมูล';
+            };
             ?>
         </div>
         <div class="row p-3 d-flex justify-content-between align-items-center">
@@ -109,6 +129,7 @@ include 'condb.php';
             <?php
                 $sql5 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 5";
                 $result5 = $conn->query($sql5);
+                if($result5->num_rows > 0){
                 while ($row5 = $result5->fetch_array()) {
                 
             ?>
@@ -119,7 +140,10 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
-                };
+                }
+            }else{
+                echo '<p class="text-center">ไม่มีข้อมูล</p>';
+            };
             ?>
         </div>
         <div class="row p-3 d-flex justify-content-between align-items-center">
@@ -130,6 +154,7 @@ include 'condb.php';
             <?php
                 $sql6 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 6";
                 $result6 = $conn->query($sql6);
+                if($result6->num_rows > 0){
                 while ($row6 = $result6->fetch_array()) {
                 
             ?>
@@ -140,7 +165,10 @@ include 'condb.php';
                 </div>
                 </a>
             <?php
-                };
+                }
+            }else{
+                echo 'ไม่มีข้อมูล';
+            };
             ?>
         </div>        
     </div>
