@@ -1,3 +1,6 @@
+<?php
+include 'condb.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,149 +17,131 @@
         <div class="row justify-content-end">
             <a href="addpage.php" class="col-3 btn btn-lg btn-primary m-3 text-center">Add</a>
         </div>
-        <div class="row p-3 d-flex justify-content-between data-hide1">
+        <div class="row p-3 d-flex justify-content-between data-hide1 align-items-center">
             <p class="h3 col-6">ภาคกลาง</p>
-            <button onclick="showdata1()" class="btn col-1 btn-info" id='show'>Show</button>
+            <button onclick="showdata1()" class="btn col-4 btn-mg btn-info" id='show'>Show</button>
         </div>
         <div class="row p-3 data-show1">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+            <?php
+                $sql1 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 4";
+                $result1 = $conn->query($sql1);
+                while ($row1 = $result1->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row1['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row1['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row1['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>
-        <div class="row p-3 d-flex justify-content-between data-hide2">
+        <div class="row p-3 d-flex justify-content-between data-hide2 align-items-center">
             <p class="h3 col-6">ภาคเหนือ</p>
-            <button onclick="showdata2()" class="btn col-1 btn-info" id='show2'>Show</button>
+            <button onclick="showdata2()" class="btn col-4 btn-mg btn-info" id='show2'>Show</button>
         </div>
         <div class="row p-3 data-show2">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+            <?php
+                $sql2 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 1";
+                $result2 = $conn->query($sql2);
+                while ($row2 = $result2->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row2['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row2['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row2['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>
-        <div class="row p-3 d-flex justify-content-between">
+        <div class="row p-3 d-flex justify-content-between align-items-center">
             <p class="h3 col-6">ภาคตะวันออกเฉียงเหนือ</p>
-            <button onclick="showdata3()" class="btn col-1 btn-info" id='show3'>Show</button>
+            <button onclick="showdata3()" class="btn col-4 btn-mg btn-info" id='show3'>Show</button>
         </div>
-        <div class="row p-3 data-show3">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+        <div class="row p-3 data-show3 ">
+            <?php
+                $sql3 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 2";
+                $result3 = $conn->query($sql3);
+                while ($row3 = $result3->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row3['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row3['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row3['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>
-        <div class="row p-3 d-flex justify-content-between data-hide4">
+        <div class="row p-3 d-flex justify-content-between data-hide4 align-items-center">
             <p class="h3 col-6">ภาคตะวันตก</p>
-            <button onclick="showdata4()" class="btn col-1 btn-info" id='show4'>Show</button>
+            <button onclick="showdata4()" class="btn col-4 btn-mg btn-info" id='show4'>Show</button>
         </div>
         <div class="row p-3 data-show4">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+            <?php
+                $sql4 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 3";
+                $result4 = $conn->query($sql4);
+                while ($row4 = $result4->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row4['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row4['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row4['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>
-        <div class="row p-3 d-flex justify-content-between">
+        <div class="row p-3 d-flex justify-content-between align-items-center">
             <p class="h3 col-6">ภาคตะวันออก</p>
-            <button onclick="showdata5()" class="btn col-1 btn-info" id='show5'>Show</button>
+            <button onclick="showdata5()" class="btn col-4 btn-mg btn-info" id='show5'>Show</button>
         </div>
         <div class="row p-3 data-show5">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+            <?php
+                $sql5 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 5";
+                $result5 = $conn->query($sql5);
+                while ($row5 = $result5->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row5['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row5['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row5['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>
-        <div class="row p-3 d-flex justify-content-between">
+        <div class="row p-3 d-flex justify-content-between align-items-center">
             <p class="h3 col-6">ภาคใต้</p>
-            <button onclick="showdata6()" class="btn col-1 btn-info" id='show6'>Show</button>
+            <button onclick="showdata6()" class="btn col-4 btn-mg btn-info" id='show6'>Show</button>
         </div>
         <div class="row p-3 data-show6">
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class=" text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
-            <a href="info.php" class="col-lg-4 col-md-6 col-sm-12">
-            <div class="text-center p-2">
-                    <img src="https://photo.maahalai.com/wp-content/uploads/2018/02/PicsArt-Full-Moon.jpg">
-                    <p class='h4 m-3'>hello</p>
-            </div>
-            </a>
+            <?php
+                $sql6 = "SELECT * FROM attraction a INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID INNER JOIN province p ON a.ProvinceID = p.p_ID INNER JOIN region r ON p.RegionID = r.r_ID WHERE r.r_ID = 6";
+                $result6 = $conn->query($sql6);
+                while ($row6 = $result6->fetch_array()) {
+                
+            ?>
+                <a href="info.php?id=<?=$row6['a_ID']?>" class="col-lg-4 col-md-6 col-sm-12">
+                <div class=" text-center p-2">
+                        <img src="<?=$row6['ImageURL']?>">
+                        <p class='h4 m-3'><?=$row6['a_Name']?></p>
+                </div>
+                </a>
+            <?php
+                };
+            ?>
         </div>        
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
