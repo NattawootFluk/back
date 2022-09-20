@@ -35,7 +35,7 @@ include 'condb.php';
 
                                             <!-- Form Data  -->
 
-                            <form action="add_data.php" method="post">
+                            <form action="update.php" method="post">
 
                                             <!-- Province -->
                             
@@ -70,20 +70,16 @@ include 'condb.php';
                                   <label class="form-lable">Image UTL :</label>
                                   <input type="text" class="form-control" name=''>
                                 </div>
+                                <div class="p-1 mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary mb-3">Add</button>
+                                    <a href="index.php" class="btn btn-secondary mb-3">Back</a>
+                                </div>
                             </form>
                         </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
   </main>
   <footer>
     <!-- place footer here -->

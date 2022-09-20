@@ -70,20 +70,17 @@ include 'condb.php';
                                   <label class="form-lable">Image UTL :</label>
                                   <input type="text" class="form-control" name=''>
                                 </div>
+                                <div class="p-1 mb-3 text-center">
+                                    <button type="submit" class="btn btn-warning mb-3">Update</button>
+                                    <a href="del.php" class="btn btn-danger mb-3">Back</a>
+                                    <a href="index.php" class="btn btn-secondary mb-3">Back</a>
+                                </div>
                             </form>
                         </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
   </main>
   <footer>
     <!-- place footer here -->
