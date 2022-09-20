@@ -10,6 +10,8 @@ include 'condb.php';
       $attraction_name = $_POST['attraction_name'];
       $description = $_POST['description'];
       $imgurl = $_POST['imgurl'];
+
+      // เวลาปัจจุบัน
       $timestamp = date('Y-m-d H:i:s');
 
       $sql = "INSERT INTO attraction SET ProvinceID = '$province',
