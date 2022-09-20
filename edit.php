@@ -2,7 +2,7 @@
 
 include 'condb.php';
 
-// $id = $_GET['id'];
+$id = $_GET['id'];
 
         // Update Attraction
 
@@ -22,7 +22,7 @@ include 'condb.php';
                                         ImageURL = '$imgurl',
                                         a_Name = '$attraction_name',
                                         Description = '$description',
-                                        Modified = '$timestamp' WHERE a_ID = '1'";
+                                        Modified = '$timestamp' WHERE a_ID = '$id'";
       
       $conn->query($sql);
 
@@ -33,7 +33,7 @@ include 'condb.php';
       if(isset($_POST['delete'])){
         
 
-        $sql = "DELETE FROM attraction WHERE a_ID = '1'";
+        $sql = "DELETE FROM attraction WHERE a_ID = '$id'";
         $conn->query($sql);
 
 
@@ -43,7 +43,7 @@ include 'condb.php';
         // SELECT Attraction DATA
 
         $sql = "SELECT * FROM attraction a INNER JOIN province p ON a.ProvinceID = p.p_ID
-                                           INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID WHERE a_id = 1";
+                                           INNER JOIN attraction_type t ON a.AttrationTypeID = t.t_ID WHERE a_id = $id";
         $result = $conn->query($sql);
         $rows = $result->fetch_assoc();
 

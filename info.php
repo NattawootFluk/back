@@ -38,7 +38,7 @@ $row = $result->fetch_array();
                             <p class='fs-6 col-1 mt-3'>Province : </p><p class='fs-6 col-11 mt-3'><?=$row['p_Name']?></p>
                         </div>
                         <div class="p-1 mb-3 text-center">
-                            <a href="edit.php" class="btn btn-warning mb-2">Edit</a>
+                            <a href="edit.php?id=<?=$id?>" class="btn btn-warning mb-2">Edit</a>
                         </div>
                     </div>
                 </div>
