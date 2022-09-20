@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 
 include 'condb.php';
@@ -21,7 +23,20 @@ include 'condb.php';
                                         Description = '$description',
                                         Created = '$timestamp'";
       
-      $conn->query($sql);
+      if($conn->query($sql)) {
+        echo "<script>
+              $(document).ready(function(){
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'เพิ่มใส่แล้วนะจ๊ะ',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              });
+            </script>";
+            header("refresh:2; url=index.php");
+      }
   }
 
 ?>
