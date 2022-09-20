@@ -3,15 +3,37 @@
     padding: 0px;
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+    color: #000;
+}
+.data-show1 {
+    display: none;
+}
+.data-show2 {
+    display: none;
+}
+.data-show3 {
+    display: none;
+}
+.data-show4 {
+    display: none;
+}
+.data-show5 {
+    display: none;
+}
+.data-show6 {
+    display: none;
+}
 img {
-    width: 400px;
+    width: 300px;
     height: 200px;
     object-fit: cover;
     object-position: 50% 50%;
 }
 @media screen and (max-width:800px) {
     img {
-        width: 400px;
+        width: 300px;
         height: 200px;
         object-fit: cover;
         object-position: 50% 50%;
