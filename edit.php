@@ -30,12 +30,12 @@ include 'condb.php';
 
                 <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title h1 text-center">Add Page</h4>
-                            <p class="card-text fs-3 text-start">Add Attraction</p>
+                            <h4 class="card-title h1 text-center">Edit Page</h4>
+                            <p class="card-text fs-3 text-start">Edit Attraction</p>
 
                                             <!-- Form Data  -->
 
-                            <form action="add_data.php" method="post">
+                            <form action="update.php" method="post">
 
                                             <!-- Province -->
                             
