@@ -26,18 +26,18 @@ include 'condb.php';
   <main>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-12 m-2">
+            <div class="col-sm-12 col-md-12 m-2 p-2">
 
                 <div class="card text-center">
                         <div class="card-body">
                             <h4 class="card-title h1">Edit Page</h4>
                             <p class="card-text fs-3 text-start">Edit Attraction</p>
 
-                                            <!-- Form Add New Data  -->
+                                            <!-- Form Data  -->
 
                             <form action="update.php" method="post">
 
-                                            <!-- Edit Province -->
+                                            <!-- Province -->
                             
                                 <div class="mb-3">
                                     <label for="province" class="form-label">Province :</label>
@@ -48,7 +48,7 @@ include 'condb.php';
                                     </select>
                                 </div>
 
-                                            <!-- Edit Attraction Type -->
+                                            <!-- Attraction Type -->
 
                                 <div class="mb-3">
                                     <label for="province" class="form-label">Type :</label>
