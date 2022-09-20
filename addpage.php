@@ -29,7 +29,7 @@ include 'condb.php';
                 Swal.fire({
                   position: 'center',
                   icon: 'success',
-                  title: 'เพิ่มใส่แล้วนะจ๊ะ',
+                  title: 'เพิ่มข้อมูลสำเร็จ',
                   showConfirmButton: false,
                   timer: 1500
                 });

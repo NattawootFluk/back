@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 
 include 'condb.php';
@@ -28,8 +30,20 @@ if(isset($_GET['id'])){
                                         Description = '$description',
                                         Modified = '$timestamp' WHERE a_ID = '$id'";
       
-      $conn->query($sql);
-      header('location:index.php');
+      if($conn->query($sql)) {
+        echo "<script>
+              $(document).ready(function(){
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'แก้ไขข้อมูลสำเร็จ',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              });
+            </script>";
+            header("refresh:2; url=index.php");
+      }
 
   }
 
@@ -40,9 +54,20 @@ if(isset($_GET['id'])){
         $id = $_POST['id'];
         
         $sql = "DELETE FROM attraction WHERE a_ID = '$id'";
-        $conn->query($sql);
-
-        header('location:index.php');
+        if($conn->query($sql)) {
+          echo "<script>
+                $(document).ready(function(){
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'ลบข้อมูลสำเร็จ',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                });
+              </script>";
+              header("refresh:2; url=index.php");
+        }
     }
 
         // SELECT Attraction DATA
